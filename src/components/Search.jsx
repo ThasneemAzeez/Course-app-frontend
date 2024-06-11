@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import Navigation from './Navigation'
 
 const Search = () => {
     const[data,setData]=useState({
@@ -22,6 +23,7 @@ const Search = () => {
   
   return (
     <div>
+        <Navigation/>
         <div className="container">
             <div className="row">
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">

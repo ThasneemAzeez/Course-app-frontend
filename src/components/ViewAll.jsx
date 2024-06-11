@@ -1,25 +1,22 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import Navigation from './Navigation'
 
 const ViewAll = () => {
     const[data,setData]=useState([])
     const fetchData=()=>{
 
-        axios.get("",data).then(
+        axios.get("http://localhost:8081/view",data).then(
             (response)=>{
-                console.log(response.data)
-                if (response.data.status=="success") {
-                    alert("succes")
-                    
-                } else {
-                    alert("error")
-                }
+                setData(response.data)
             }
-        )
+        ).catch().finally()
     }
+    useEffect(()=>{fetchData()},[])
     
     return (
         <div>
+            <Navigation/>
             <div className="container">
                 <div className="row">
                     <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
